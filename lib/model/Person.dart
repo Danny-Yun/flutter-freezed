@@ -1,15 +1,15 @@
-import 'package:freezed/builder.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'person.freezed.dart';
-part 'person.g.dart';
+part 'Person.freezed.dart';
+
+part 'Person.g.dart';
 
 @freezed
 class Person with _$Person {
   factory Person({
-    required int id,
-    required String name,
-    required int age,
+    int? id,
+    String? name,
+    int? age,
   }) = _Person;
 
   factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
