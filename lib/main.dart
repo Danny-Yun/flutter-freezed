@@ -56,6 +56,13 @@ class _MyHomeState extends State<MyHome> {
   Widget build(BuildContext context) {
     final person1 = Person(id: 1, name: 'riudiu', age: 22);
     final person2 = Person(id: 1, name: 'riudiu', age: 22);
+
+    // freezed는 immutable(불변)한 개념을 가지기 때문에 따로 setter를 지정할순 없다.
+    // 게다가 final 때문에 person1.age = 27; 이런 식으로 값을 바꿀 수 없다.
+
+    // 그래서 무언가 하나만을 수정하고 싶을 때 아래와 같이 .copyWith으로 매우 간편하게 바꿀 수 있다.
+    final person3 = person1.copyWith(age: 27);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('flutter freezed'),
@@ -72,6 +79,7 @@ class _MyHomeState extends State<MyHome> {
             renderText('toString()', person1.toString()),
             renderText('toJson()', person1.toJson().toString()),
             renderText('==', (person1 == person2).toString()),
+            renderText('person3', person3.toJson().toString()),
           ],
         ),
       ),
