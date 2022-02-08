@@ -55,16 +55,25 @@ class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     final person1 = Person(id: 1, name: 'riudiu', age: 22);
+    final person2 = Person(id: 1, name: 'riudiu', age: 22);
     return Scaffold(
       appBar: AppBar(
         title: Text('flutter freezed'),
         centerTitle: true,
         elevation: 0.5,
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(15),
         child: Column(
-            // children: [renderText('person1.id', person1.id.toString())],
-            ),
+          children: [
+            renderText('person1.id', person1.id.toString()),
+            renderText('person1.name', person1.name.toString()),
+            renderText('person1.age', person1.age.toString()),
+            renderText('toString()', person1.toString()),
+            renderText('toJson()', person1.toJson().toString()),
+            renderText('==', (person1 == person2).toString()),
+          ],
+        ),
       ),
     );
   }
