@@ -15,4 +15,6 @@ class Person with _$Person {
 
   factory Person.loading({int? statusCode}) = _Loading;
   factory Person.error(String message, {int? statusCode}) = _Error;
+
+  // flutter pub run build_runner build 터미널에 입력
 }
